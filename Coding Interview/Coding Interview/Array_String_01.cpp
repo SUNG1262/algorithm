@@ -99,3 +99,8 @@ bool reverseString(char* str) // call by pointer - original will be changed
 	cout << str << endl; // pointer
 	return true;
 }
+
+bool IsAnagram(string s1, string s2)
+{
+	return false;
+}
