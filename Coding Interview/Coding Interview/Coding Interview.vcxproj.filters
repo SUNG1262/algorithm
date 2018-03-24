@@ -18,10 +18,10 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="1_1_IsCharUnique.cpp">
+    <ClCompile Include="IsCharUnique1_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IsCharUnique1_1.cpp">
+    <ClCompile Include="Array_String_01.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,7 +31,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IsCharUnique1_1.h">
+    <ClInclude Include="Array_String_01.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

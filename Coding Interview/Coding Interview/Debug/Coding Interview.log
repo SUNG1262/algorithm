@@ -1,8 +1,4 @@
-﻿  Main.cpp
-  Generating Code...
-  Compiling...
-  1_1_IsCharUnique.cpp
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\1_1_ischarunique.cpp(29): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+﻿  Array_String_01.cpp
+c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(48): warning C4018: '<': signed/unsigned mismatch
   Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.exe
   Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.pdb (Full PDB)
