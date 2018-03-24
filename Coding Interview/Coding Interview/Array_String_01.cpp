@@ -10,15 +10,15 @@ using namespace std;
 void run(int p_num)
 {
 	bool success = false;
-	//string str="";
+	string str1="";
 	char* str=NULL;
 	char buffer[30];
 	switch (p_num)
 	{
 	case 1:
 		cout << "[Q1.1] IsCharUnique()\n검사할 string을 입력해주세요" << endl;
-		cin >> str;
-		success = IsCharUnique(str);
+		cin >> str1;
+		success = IsCharUnique(str1);
 		if (success)
 			cout << "결과 : Unique" << endl;
 		else {
