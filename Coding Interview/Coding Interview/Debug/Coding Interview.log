@@ -1,5 +1,4 @@
-﻿  Main.cpp
-  Array_String_01.cpp
+﻿  Array_String_01.cpp
 c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(47): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(105): error C4716: 'IsAnagram': must return a value
+  Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.exe
+  Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.pdb (Full PDB)
