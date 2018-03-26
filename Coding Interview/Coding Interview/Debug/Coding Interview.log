@@ -1,4 +1,7 @@
 ﻿  Array_String_01.cpp
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(47): warning C4018: '<': signed/unsigned mismatch
+c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(40): warning C4129: ' ': unrecognized character escape sequence
+c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(127): warning C4018: '<': signed/unsigned mismatch
+c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(130): warning C4018: '<': signed/unsigned mismatch
   Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.exe
   Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.pdb (Full PDB)

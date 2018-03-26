@@ -9,5 +9,6 @@ bool IsCharUnique(string); // 1.1 ASCII SCOPE
 bool reverseString(string); // 1.2 string
 bool reverseString(char*); // 1.2 char*
 bool IsAnagram(string s1, string s2);
-
+bool makeURLString(char*, int);
+void printResult(bool, string);
 #endif // !ARAAY_STRING_01_H
