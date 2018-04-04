@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <string>
 #include "Array_String_01.h"
 
@@ -13,6 +14,8 @@ void run(int p_num)
 	string str1="", str3 ="";
 	char* charArr=NULL;
 	char buffer[30];
+	int** matrix =NULL; // typedef int* IntArrayPtr;//편리하게 선언가능 
+
 	switch (p_num)
 	{
 	case 1:
@@ -44,7 +47,53 @@ void run(int p_num)
 		success = makeURLString(buffer,30);
 		//printResult(success, "변환 성공");
 		break;
-	default:
+	case 5:
+		cout << "[Q1.5] compressString\ string을 입력해주세요" << endl;
+		cin >> buffer; // char* 초기화를 위해서
+		charArr = buffer;
+		compressStringV2(charArr);
+		break;
+	case 6:
+		cout << "[Q1.6] rotateMatrix\ string을 입력해주세요" << endl;
+		cin >> buffer; // char* 초기화를 위해서
+		charArr = buffer;
+		//compressStringV2(charArr);
+		break;
+	case 7:
+		cout << "[Q1.7] Matirx\ matrix의 row와 column을 입력해주세요 ex) 2 5" << endl;
+		int r, c;
+		cin >> r >> c;
+		cout << "matrix의 원소를 순서대로 입력해주세요  ex) 1 2 3 4 5 6 7 8 0 10" << endl;
+		// int** matrix = new int*[r]; 
+		matrix = new int*[r]; // typedef int* IntArrayPtr;//편리하게 선언가능 
+		for (int i = 0; i < r; i++) {
+			matrix[i] = new int[c];
+			for (int j = 0; j < c; j++) {
+				cin >> matrix[i][j];
+			}
+		}
+		cout << "Echoing the tow-dimensional array:\n";
+		for (int i = 0; i < r; i++) {
+			for (int j = 0; j < c; j++)
+				cout << matrix[i][j] << " ";
+			cout << endl;
+		}
+	/*	printf("%d\n", sizeof(matrix));
+		printf("%d", sizeof(matrix[0]));
+	*/
+		setzeroMatrix(matrix, r, c);
+		for (int i = 0; i < r; i++) {
+			delete[] matrix[i];
+		}
+		delete[] matrix; 
+		break;
+	case 8:
+		cout << "[Q1.8] IsRotation\ string을 입력해주세요" << endl;
+		cin >> str1 >> str3;
+		if(IsRotation(str1, str3))
+			printf("True");
+		break;
+		default:
 		cout << "숫자 입력 필요함" << endl;
 		break;
 	}
@@ -162,6 +211,121 @@ bool makeURLString(char* str, int len) // 원본 문자열, 원본문자열 길이
 	delete []url;
 	return true;
 } 
+string compressStringV1(string str) {
+	return str;
+}
+char * compressStringV2(char* arr)
+{
+	char* ch;
+	char* count = arr;
+	int cnt = 1;
+	int i, index = 0;
+	int len=0;
+	while (*count != '\0') { //*count라는걸 주의하기!
+		len++;
+		count++;
+	}
+	char* nChar = new char[len+1];
+	for (i = 1; i < len; i++) {
+		if (arr[i] == arr[i - 1]) {
+			cnt++;
+		}
+		else {
+			nChar[index++] = arr[i - 1];
+			//int temp = cnt;
+			//int digit=0;
+			//while (temp != 0) {
+			//	temp /= 10;
+			//	digit++;
+			//} // 113(?)
+			//if(cnt<10)
+				nChar[index++] = cnt+'0';
+		/*	else {
+				nChar[index++] = cnt + '0';
+			}*/
+			cnt = 1;
+		}
+	}
+	nChar[index++] = arr[i - 1];
+	nChar[index++] = cnt + '0'; // int를 char로 하면 원하는 값 ㄴㄴ
+	nChar[index] = '\0';
+	if (index < len)
+		printf("%s", nChar);
+	else
+		printf("%s", arr);
+	return nChar;
+}
+
+void rotateMatrix(int** matrix, int n)
+{
+
+}
+/// The two temp array is used.
+/// 2*5 = row * column
+void  setzeroMatrix(int** matrix, int row, int col)
+{
+	///w정적 배열만 구할 수 있음. 동적배열 불가능
+//	int row = sizeof(matrix) / sizeof(matrix[0]);   // 2: 2차원 배열의 세로 크기를 구할 때는 배열이 차지하는 공간을 가로 한 줄의 크기로 나눠줌
+//	int col = sizeof(matrix[0]) / sizeof(int);      // 5: 2차원 배열의 가로 크기(열(세로줄)의 크기) 를 구할 때는 가로 한 줄을 요소의 크기로 나눠줌
+
+	bool* IsRowZero = new bool[row];// bool IsRowZero[row] = { false }; row가 constant value가 아니므로 신텍스 에러
+	bool* IsColumnZero = new bool[col];
+
+	///check
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			if (matrix[i][j] == 0) {
+				IsRowZero[i] = true;
+				IsColumnZero[j] = true;
+			}
+		}
+	}
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			if (IsRowZero[i] == true || IsColumnZero[j] == true) {
+				matrix[i][j] = 0;
+			}
+		}
+	}
+
+	cout << "Result : Echoing the tow-dimensional array:\n";
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++)
+			cout << matrix[i][j] << " ";
+		cout << endl;
+	}
+
+}
+
+///
+/// s1 = erbottlewatt
+/// s2 = watterbottle
+bool IsRotation(string s1, string s2) {
+	string s1s1;
+	if (s1.length() != s2.length()) {
+		return false;
+	}
+	s1s1 = s1 + s1;
+	if(isSubstring(s1s1, s2))
+		return true;
+	return false;
+}
+
+///Is s2 a subsring from s1?
+bool isSubstring(string s1, string s2)
+{
+	char asc[SIZE_ASCII + 1] = { 0 };
+	for (int i = 0; i < s1.length(); i++) {
+		asc[s1[i]]++;
+	}
+	for (int i = 0; i < s2.length(); i++) {
+		if (--asc[s2[i]] < 0) {
+			return false;
+		}
+	}
+	return true;
+}
 
 void printResult(bool res, string message) {
 	if (res)

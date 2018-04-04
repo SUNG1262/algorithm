@@ -1,9 +1,9 @@
-/// run
+ï»¿/// run
 #include "Array_String_01.h"
 ///STL
 #include <iostream>
 #include <string>
-
+#include <list>
 using namespace std;
 ///User define
 
@@ -11,7 +11,7 @@ int main() {
 	int n;
 	//freopen("String.txt", "r", stdin);
 	//scanf("%d", &n);
-	cout << "¹®Á¦¹øÈ£ ÀÔ·Â ÈÄ ¿£ÅÍ" << endl;
+	cout << "ë¬¸ì œë²ˆí˜¸ ìž…ë ¥ í›„ ì—”í„°" << endl;
 	cin >> n;
 	run(n);
 	return 0;
