@@ -16,5 +16,7 @@ void rotateMatrix(int** matrix, int n); // TODO
 void setzeroMatrix(int** matrix, int r, int c); // 1.7
 bool IsRotation(string, string); // 1.8
 bool isSubstring(string s1, string s2); // for 1.8 referring to 1.3(Anagram)
+char* itoa(int num, char*);
 void printResult(bool, string); 
 #endif // !ARAAY_STRING_01_H
+  

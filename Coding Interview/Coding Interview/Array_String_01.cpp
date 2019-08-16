@@ -11,6 +11,7 @@ using namespace std;
 void run(int p_num)
 {
 	bool success = false;
+	int n=0;
 	string str1="", str3 ="";
 	char* charArr=NULL;
 	char buffer[30];
@@ -54,10 +55,27 @@ void run(int p_num)
 		compressStringV2(charArr);
 		break;
 	case 6:
-		cout << "[Q1.6] rotateMatrix\ string을 입력해주세요" << endl;
-		cin >> buffer; // char* 초기화를 위해서
-		charArr = buffer;
-		//compressStringV2(charArr);
+		cout << "[Q1.6] rotateMatrix\ matrix의 크기를 입력해주세요" << endl;
+		cin >> n; // char* 초기화를 위해서
+		cout << "matrix의 원소를 순서대로 n개 입력해주세요  ex) 1 2 3 4 5 6 7 8 0 10" << endl;
+		matrix = new int*[n]; // typedef int* IntArrayPtr;//편리하게 선언가능 
+		for (int i = 0; i < n; i++) {
+			matrix[i] = new int[n];
+			for (int j = 0; j < n; j++) {
+				cin >> matrix[i][j];
+			}
+		}
+		cout << "Echoing the tow-dimensional array:\n";
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++)
+				cout << matrix[i][j] << " ";
+			cout << endl;
+		}
+		rotateMatrix(matrix, n);
+		for (int i = 0; i < n; i++) {
+			delete[] matrix[i];
+		}
+		delete[] matrix;
 		break;
 	case 7:
 		cout << "[Q1.7] Matirx\ matrix의 row와 column을 입력해주세요 ex) 2 5" << endl;
@@ -106,7 +124,7 @@ bool IsCharUnique(string str)
 		return false;
 	}
 	else {
-		bool IsChar[SIZE_ASCII + 1] = { false };
+		bool IsChar[SIZE_ASCII + 1] = { false, };
 		for (int i = 0; i < str.length(); i++) {
 			int index = str.at(i);
 			if (!IsChar[index]) {
@@ -142,33 +160,49 @@ bool reverseString(string str)
 
 ///1.2
 ///char* asdf/0
+///인스턴스가 배열로 들어와야 바꿀 수 있음
 bool reverseString(char* str) // call by pointer - original will be changed
 {
-	int s=0, e=-1;
-	char* copyStr = str; // str copy하지 않을 시, str의 위치를 잃으면 copy가 안됨
-	//int length = sizeof(str) / sizeof(char);
-	while (*copyStr != NULL) {
+	//int s=0, e=-1;
+	//char* copyStr = str; // str copy하지 않을 시, str의 위치를 잃으면 copy가 안됨
+	//int length = sizeof(str) / size of(char);
+	//while (*copyStr != NULL) {
+	//	e++;
+	//	copyStr++;
+	//}
+	//if (e == -1) {
+	//	return false;
+	//}
+	//while (s < e) {
+	//	char temp;
+	//	temp = str[s];
+	//	str[s++] = str[e];
+	//	str[e--] = temp;
+	//}
+	//cout << str << endl; // pointer
+	//return true;
+	char* e = str;
+	char* s = str;
+	while (*e) {
 		e++;
-		copyStr++;
 	}
-	if (e == -1) {
-		return false;
-	}
+	e--;
 	while (s < e) {
-		char temp;
-		temp = str[s];
-		str[s++] = str[e];
-		str[e--] = temp;
+		char t;
+		t = *e;
+		*(e--) = *s;
+		*(s++) = t;
 	}
-	cout << str << endl; // pointer
-	return true;
+
+	cout << str;
+	return str;
 }
 
 ///1.3 substring - permutation
 /// 방법 1) sorting	2) 문자의 출현횟수가 같은가 
 bool IsAnagram(string s1, string s2)/// 방법 2 적용
 {
-	char asc[SIZE_ASCII+1] = { 0 };
+	char asc[SIZE_ASCII+1] = { 0, };
 	if (s1.length() != s2.length()) {
 		return false;
 	}
@@ -193,17 +227,18 @@ bool makeURLString(char* str, int len) // 원본 문자열, 원본문자열 길이
 	char* pChar = str;//초기화
 	char* url = new char[3*len]; // < 3*len임 
 	int i = 0;
-	while ((*pChar) != '\0') { //char '', str ""
+	while (*pChar) { //(*pChar) != '\0'char '', str ""
 		if ((*pChar) == ' ') {
 			*(url + i) = '%';
 			*(url + ++i ) = '2';
 			*(url + ++i) = '0';
-			i++;
+	//		i++;
 		}
 		else {
 			*(url + i) = *pChar;
-			i++;
+		//	i++;
 		}
+		i++;
 		pChar++;
 	}
 	*(url + i) = '\0';
@@ -221,6 +256,7 @@ char * compressStringV2(char* arr)
 	int cnt = 1;
 	int i, index = 0;
 	int len=0;
+
 	while (*count != '\0') { //*count라는걸 주의하기!
 		len++;
 		count++;
@@ -247,7 +283,7 @@ char * compressStringV2(char* arr)
 		}
 	}
 	nChar[index++] = arr[i - 1];
-	nChar[index++] = cnt + '0'; // int를 char로 하면 원하는 값 ㄴㄴ
+	nChar[index++] = cnt + '0'; // int를 char로 하면 원하는 값 ㄴㄴ itoa
 	nChar[index] = '\0';
 	if (index < len)
 		printf("%s", nChar);
@@ -258,7 +294,27 @@ char * compressStringV2(char* arr)
 
 void rotateMatrix(int** matrix, int n)
 {
-
+	//int** result = new int*[n]; // typedef int* IntArrayPtr;//편리하게 선언가능 
+	//for (int i = 0; i < n; i++) {
+	//	result[i] = new int[n];
+	//}
+	//
+	//for (int i = 0; i < n; i++) {
+	//	for (int j = 0; j < n; j++) {
+	//		result[j][-i + 2] = matrix[i][j];
+	//	}
+	//}
+	//cout << "Result : the tow-dimensional array:\n";
+	//for (int i = 0; i < n; i++) {
+	//	for (int j = 0; j < n; j++)
+	//		cout << result[i][j] << " ";
+	//	cout << endl;
+	//}
+	//for (int i = 0; i < n; i++) {
+	//	delete[] result[i];
+	//}
+	//delete[] result;
+	
 }
 /// The two temp array is used.
 /// 2*5 = row * column
@@ -325,6 +381,26 @@ bool isSubstring(string s1, string s2)
 		}
 	}
 	return true;
+}
+
+//123
+char* itoa(int num, char* arr)
+{
+	int d = 1;
+	int idx = 0;
+	char ch;
+	while (num / d > 0) {
+		d *= 10;
+	}
+	d /= 10;
+	while (num > 0) {
+		ch = num / d + '0';
+		num -= (num / d) * d;
+		arr[idx++] = ch;
+		d /= 10;
+	}
+	arr[idx] = '\0';
+	return arr;
 }
 
 void printResult(bool res, string message) {

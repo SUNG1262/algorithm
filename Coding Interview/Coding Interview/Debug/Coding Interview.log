@@ -1,14 +1,4 @@
-﻿  Array_String_01.cpp
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(43): warning C4129: ' ': unrecognized character escape sequence
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(51): warning C4129: ' ': unrecognized character escape sequence
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(57): warning C4129: ' ': unrecognized character escape sequence
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(63): warning C4129: ' ': unrecognized character escape sequence
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(91): warning C4129: ' ': unrecognized character escape sequence
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(110): warning C4018: '<': signed/unsigned mismatch
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(176): warning C4018: '<': signed/unsigned mismatch
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(179): warning C4018: '<': signed/unsigned mismatch
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(219): warning C4101: 'ch': unreferenced local variable
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(319): warning C4018: '<': signed/unsigned mismatch
-c:\users\sung\source\repos\algorithm\coding interview\coding interview\array_string_01.cpp(322): warning C4018: '<': signed/unsigned mismatch
+﻿  Main.cpp
+c:\users\sung\source\repos\algorithm\coding interview\coding interview\main.cpp(62): warning C4101: 'n': unreferenced local variable
   Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.exe
   Coding Interview.vcxproj -> C:\Users\SUNG\Source\Repos\algorithm\Coding Interview\Debug\Coding Interview.pdb (Full PDB)
